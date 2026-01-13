@@ -1,0 +1,43 @@
+INCLUDE ~rr/lib/rr#afix.tph~                                        // Include the Rogue Rebalancing Assorted Fixes macro
+INCLUDE ~rr/lib/rr#bg1v.tpa~                                        // Include the BG1 variables macro (used for proper Tutu and BGT compatibility)
+INCLUDE ~rr/lib/rr#sp2in.tph~                                       // Include my custom "Spell to Innate" function
+INCLUDE ~rr/lib/fl#bg1pal.tpa~                                      // BG1 Platform-Abstraction Library
+INCLUDE "rr/lib/lib.tpa"
+ 
+ACTION_IF ENGINE_IS ~bgee bg2ee~ BEGIN
+	ACTION_DEFINE_ASSOCIATIVE_ARRAY charsetsTable BEGIN
+		"german" => "CP1252"
+		"english" => "CP1252"
+		"french" => "CP1252"
+		"italian" => "CP1252"
+		"polish" => "CP1250"
+		"russian" => "CP1251"
+		"castilian" => "CP1252"
+		"schinese" => "CP936"
+		"spanish" => "CP1252"
+	END
+	ACTION_DEFINE_ARRAY charsetsReloadArray BEGIN setup journal END
+	ACTION_DEFINE_ARRAY charsetsNoConvertArray BEGIN install END
+	OUTER_SPRINT tra_loc "weidu_external/lang/%MOD_FOLDER%"
+	LAF ~HANDLE_CHARSETS~
+		INT_VAR
+		infer_charsets = 0
+		STR_VAR
+		tra_path = "rr/tra"
+		out_path = "%tra_loc%"
+		default_language = "english"
+		iconv_path = "%MOD_FOLDER%/bin/win32/iconv" //available as part of the base system on OS X and GNU/Linux
+		charset_table = charsetsTable
+		reload_array = charsetsReloadArray
+		noconvert_array = charsetsNoConvertArray
+	END
+		
+	LOAD_TRA ~rr/ee/game.tra~	// Already in UTF-8
+END
+ELSE
+BEGIN
+		// Old engine, just define tra_loc
+		OUTER_SPRINT tra_loc "rr/tra"
+END
+
+
