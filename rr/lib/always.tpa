@@ -18,7 +18,7 @@ ACTION_IF ENGINE_IS ~bgee bg2ee~ BEGIN
 	END
 	ACTION_DEFINE_ARRAY charsetsReloadArray BEGIN setup journal END
 	ACTION_DEFINE_ARRAY charsetsNoConvertArray BEGIN install END
-	OUTER_SPRINT tra_loc "weidu_external/lang/%MOD_FOLDER%"
+	OUTER_SPRINT tra_loc "weidu_external/lang/rr"
 	LAF ~HANDLE_CHARSETS~
 		INT_VAR
 		infer_charsets = 0
@@ -26,7 +26,7 @@ ACTION_IF ENGINE_IS ~bgee bg2ee~ BEGIN
 		tra_path = "rr/tra"
 		out_path = "%tra_loc%"
 		default_language = "english"
-		iconv_path = "%MOD_FOLDER%/bin/win32/iconv" //available as part of the base system on OS X and GNU/Linux
+		iconv_path = "rr/tra/iconv" //available as part of the base system on OS X and GNU/Linux
 		charset_table = charsetsTable
 		reload_array = charsetsReloadArray
 		noconvert_array = charsetsNoConvertArray
