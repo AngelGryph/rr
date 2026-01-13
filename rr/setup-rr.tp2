@@ -2254,22 +2254,25 @@ COPY_EXISTING ~%tutu_var%MISC2P.ITM~ override                // Greagan's Harp
     INT_VAR
       check_globals = 0
       check_headers = 1
-      match_opocode = 174 // play sound effect
+      match_opcode = 174 // play sound effect
       match_timing = 4 // delayed
       duration = 48
   END
-  LPF ALTER_EFFECT
-    INT_VAR
-      check_globals = 0
-      check_headers = 1
-      match_opcode = 141 // lighting effects
-      opcode = 215 // play 3D effect
-      parameter1 = 0
-      parameter2 = 1 // effect plays over target
-      timing = 0
-      duration = 1
-    STR_VAR
+  PATCH_IF NOT GAME_IS "bgee bg2ee eet"	// Not required on EE games
+  BEGIN
+    LPF ALTER_EFFECT
+      INT_VAR
+        check_globals = 0
+        check_headers = 1
+        match_opcode = 141 // lighting effects
+        opcode = 215 // play 3D effect
+        parameter1 = 0
+        parameter2 = 1 // effect plays over target
+        timing = 0
+        duration = 1
+      STR_VAR
       resource = ~SPNWCHRM~
+    END
   END
 BUT_ONLY
 END // not on IWD:EE
