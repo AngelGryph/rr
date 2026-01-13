@@ -952,7 +952,7 @@ REQUIRE_PREDICATE ENGINE_IS ~tob bg2ee~ AND GAME_INCLUDES ~tob~ @902
 
 LAUNCH_ACTION_MACRO ~RR#AFIX~
 
-INCLUDE "rr/lib/ds.tpa"                                              // Detectable Spells
+INCLUDE "rr/lib/ds.tph"                                              // Detectable Spells
 
 
 // Update the Bard 2DAs with RR's revised HLA versions
@@ -1584,7 +1584,7 @@ REQUIRE_PREDICATE ENGINE_IS ~tob bgee bg2ee iwdee~ AND !GAME_IS ~iwd-in-bg2~ @90
 INCLUDE ~RR/LIB/RR#SSOB.TPH~                                        // Include the Short Sword of Backstabbing patch macro
 LAUNCH_ACTION_MACRO ~RR#AFIX~
 
-INCLUDE "rr/lib/ds.tpa"                                             // Detectable Spells
+INCLUDE "rr/lib/ds.tph"                                             // Detectable Spells
 
 ACTION_IF NOT MOD_IS_INSTALLED ITEM_REV.TP2 0 AND !GAME_IS ~iwdee~ BEGIN
   COPY ~RR/RR_CORE/BAM/RR#CKIEL.BAM~ override                         // Kiel's Buckler description icon (CSHLD20.BAM is missing in BG2)
@@ -3545,7 +3545,7 @@ REQUIRE_PREDICATE GAME_INCLUDES ~tob~ @902
 
 LAUNCH_ACTION_MACRO ~RR#AFIX~
 
-INCLUDE "rr/lib/ds.tpa"                                                      // Detectable Spells
+INCLUDE "rr/lib/ds.tph"                                                      // Detectable Spells
 
 // CoC area files
 
@@ -3841,7 +3841,7 @@ REQUIRE_PREDICATE ENGINE_IS ~tob bgee bg2ee iwdee~ AND GAME_INCLUDES ~soa~ @902
 
 LAUNCH_ACTION_MACRO ~RR#AFIX~
 
-INCLUDE "rr/lib/ds.tpa"                                                       // Detectable Spells
+INCLUDE "rr/lib/ds.tph"                                                       // Detectable Spells
 
 // Create scroll and potion distribution markers
 
